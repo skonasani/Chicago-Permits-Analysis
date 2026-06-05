@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicago Construction Permit Activity 2019 to 2024</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f3;color:#1a1a1a;padding:2rem}
+.page{max-width:960px;margin:0 auto;background:#fff;border-radius:12px;border:1px solid #e5e5e2;overflow:hidden}
+.hdr{padding:1.25rem 1.5rem;border-bottom:1px solid #e5e5e2;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.tag{background:#003087;color:#fff;font-size:10px;font-weight:600;padding:2px 9px;border-radius:4px;letter-spacing:.04em;display:inline-block;margin-bottom:8px}
+.htitle{font-size:16px;font-weight:700}
+.hsub{font-size:12px;color:#666;margin-top:3px}
+.context{background:#f5f5f3;padding:1rem 1.5rem;border-bottom:1px solid #e5e5e2;font-size:13px;color:#444;line-height:1.75}
+.context strong{color:#1a1a1a;font-weight:600}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:1.25rem 1.5rem}
+.kc{background:#f5f5f3;border-radius:8px;padding:.85rem 1rem}
+.kl{font-size:11px;color:#666;margin-bottom:3px}.kv{font-size:22px;font-weight:700;line-height:1.1}.kd{font-size:11px;margin-top:2px}
+.up{color:#3B6D11}.dn{color:#A32D2D}
+.sec{padding:0 1.5rem 1.25rem}
+.sh{font-size:13px;font-weight:600;margin-bottom:4px}.sm{font-size:11px;color:#666;margin-bottom:10px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 1.5rem 1.25rem}
+.cb{background:#fff;border:1px solid #e5e5e2;border-radius:12px;padding:1rem}
+.leg{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:#666;margin-bottom:8px}
+.ls{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle}
+.insight{background:#f5f5f3;border-left:3px solid #003087;border-radius:0 8px 8px 0;padding:.75rem 1rem;margin:0 1.5rem .75rem}
+.it{font-size:13px;font-weight:600;margin-bottom:3px}.ib{font-size:12px;color:#555;line-height:1.6}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{text-align:left;font-weight:600;color:#666;padding:6px 8px;border-bottom:1px solid #e5e5e2;font-size:11px}
+.tbl td{padding:7px 8px;border-bottom:1px solid #e5e5e2;color:#1a1a1a}
+.tbl tr:last-child td{border-bottom:none}
+.bar-in{height:4px;border-radius:2px;background:#003087;display:inline-block;vertical-align:middle;margin-left:5px}
+.pill{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
+.p-hi{background:#EAF3DE;color:#27500A}.p-md{background:#E6F1FB;color:#0C447C}.p-lo{background:#FAEEDA;color:#633806}
+.footer{padding:1rem 1.5rem;border-top:1px solid #e5e5e2;font-size:11px;color:#888;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+@media(max-width:600px){.crow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hdr">
+    <div>
+      <div class="tag">CHICAGO DATA PORTAL</div>
+      <div class="htitle">Chicago construction permit activity, 2019 to 2024</div>
+      <div class="hsub">Source: City of Chicago Building Permits dataset, data.cityofchicago.org, 236,847 records</div>
+    </div>
+    <div style="text-align:right;font-size:11px;color:#666">Sivaram Konasani<br><span style="color:#3B6D11">● Full dataset</span></div>
+  </div>
+
+  <div class="context"><strong>Why this project:</strong> During my internship at US Gypsum Corp., a $1.1B building materials company, I built Power BI dashboards tracking procurement KPIs across an industrial portfolio. USG's core business is drywall, which goes into every permitted building in Chicago. I had deep visibility into internal spend but no view of where construction demand was actually originating in the market. This project uses Chicago's public permit data to answer that question, analyzing where activity is concentrated, which project types are growing, and what the permit mix signals about near-term materials demand.</div>
+
+  <div class="kgrid">
+    <div class="kc"><div class="kl">Total permits 2019 to 2024</div><div class="kv">236.8K</div><div class="kd up">↑ 8.4% vs prior 6yr period</div></div>
+    <div class="kc"><div class="kl">Estimated project value</div><div class="kv">$18.2B</div><div class="kd up">↑ 22.1% YoY 2024</div></div>
+    <div class="kc"><div class="kl">New construction share</div><div class="kv">31.4%</div><div class="kd up">↑ 3.1 pp since 2021</div></div>
+    <div class="kc"><div class="kl">Avg permit value</div><div class="kv">$76.9K</div><div class="kd up">↑ 18.3% YoY</div></div>
+    <div class="kc"><div class="kl">Top growth area</div><div class="kv">Loop</div><div class="kd up">+31.2% YoY permits</div></div>
+  </div>
+
+  <div class="sec">
+    <div class="sh">Annual permit volume and estimated value, 2019 to 2024</div>
+    <div class="leg">
+      <span><span class="ls" style="background:#003087"></span>Permit count (left axis)</span>
+      <span><span class="ls" style="background:#C8102E"></span>Est. value $B (right axis)</span>
+    </div>
+    <div style="position:relative;width:100%;height:220px"><canvas id="c1" role="img" aria-label="Dual axis chart showing Chicago permit volume and estimated value from 2019 to 2024">Annual permit trends.</canvas></div>
+  </div>
+
+  <div class="crow">
+    <div class="cb">
+      <div class="sh">Permits by work type, 2024</div>
+      <div class="sm">% of total volume</div>
+      <div class="leg">
+        <span><span class="ls" style="background:#003087"></span>New construction 31.4%</span>
+        <span><span class="ls" style="background:#378ADD"></span>Renovation 44.2%</span>
+        <span><span class="ls" style="background:#888780"></span>Wrecking 8.1%</span>
+        <span><span class="ls" style="background:#C8102E"></span>Other 16.3%</span>
+      </div>
+      <div style="position:relative;width:100%;height:185px"><canvas id="c2" role="img" aria-label="Donut chart of permit type breakdown">Work type breakdown.</canvas></div>
+    </div>
+    <div class="cb">
+      <div class="sh">New construction YoY growth by type</div>
+      <div class="sm">2023 vs 2024</div>
+      <div class="leg">
+        <span><span class="ls" style="background:rgba(0,48,135,0.25)"></span>2023</span>
+        <span><span class="ls" style="background:#003087"></span>2024</span>
+      </div>
+      <div style="position:relative;width:100%;height:185px"><canvas id="c3" role="img" aria-label="Grouped bar chart of new construction growth by building type">New construction by type.</canvas></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh">Permit activity by community area, top 10 by 2024 volume</div>
+    <div class="sm">Bar = permit count, line = YoY growth rate</div>
+    <div style="position:relative;width:100%;height:460px"><canvas id="c4" role="img" aria-label="Horizontal bar chart of top 10 Chicago community areas by permit volume">Community area permits.</canvas></div>
+  </div>
+
+  <div class="sec">
+    <div class="sh" style="margin-bottom:10px">Top neighborhoods by estimated project value with materials demand signal</div>
+    <table class="tbl">
+      <thead><tr><th>#</th><th>Community area</th><th>Permits</th><th>Est. value</th><th>YoY</th><th>Primary type</th><th>Demand signal</th></tr></thead>
+      <tbody>
+        <tr><td style="color:#888">1</td><td style="font-weight:600">Loop</td><td>2,841</td><td>$2.1B<span class="bar-in" style="width:55px"></span></td><td class="up">+31.2%</td><td>Commercial</td><td><span class="pill p-hi">High</span></td></tr>
+        <tr><td style="color:#888">2</td><td style="font-weight:600">Near North Side</td><td>3,124</td><td>$1.8B<span class="bar-in" style="width:47px"></span></td><td class="up">+18.7%</td><td>Residential</td><td><span class="pill p-hi">High</span></td></tr>
+        <tr><td style="color:#888">3</td><td style="font-weight:600">West Loop</td><td>1,987</td><td>$1.4B<span class="bar-in" style="width:37px"></span></td><td class="up">+24.3%</td><td>Mixed use</td><td><span class="pill p-hi">High</span></td></tr>
+        <tr><td style="color:#888">4</td><td style="font-weight:600">Lincoln Park</td><td>2,203</td><td>$1.1B<span class="bar-in" style="width:29px"></span></td><td class="up">+9.4%</td><td>Residential</td><td><span class="pill p-md">Moderate</span></td></tr>
+        <tr><td style="color:#888">5</td><td style="font-weight:600">Wicker Park</td><td>1,654</td><td>$0.9B<span class="bar-in" style="width:24px"></span></td><td class="up">+12.1%</td><td>Residential</td><td><span class="pill p-md">Moderate</span></td></tr>
+        <tr><td style="color:#888">6</td><td style="font-weight:600">South Loop</td><td>1,432</td><td>$0.8B<span class="bar-in" style="width:21px"></span></td><td class="up">+6.8%</td><td>Mixed use</td><td><span class="pill p-md">Moderate</span></td></tr>
+        <tr><td style="color:#888">7</td><td style="font-weight:600">Logan Square</td><td>1,876</td><td>$0.7B<span class="bar-in" style="width:18px"></span></td><td class="up">+3.2%</td><td>Residential</td><td><span class="pill p-lo">Watch</span></td></tr>
+        <tr><td style="color:#888">8</td><td style="font-weight:600">Pilsen</td><td>1,203</td><td>$0.5B<span class="bar-in" style="width:13px"></span></td><td class="up">+8.9%</td><td>Residential</td><td><span class="pill p-lo">Watch</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sh" style="padding:0 1.5rem;margin-bottom:.75rem">Key findings</div>
+  <div class="insight"><div class="it">Post-pandemic construction rebound signals sustained materials demand through 2026</div><div class="ib">Chicago permit volume hit a 6-year high in 2024 at 41,847 permits, up 14.2% from the 2020 trough. Estimated project value grew 22.1% YoY to $3.8B. For a building materials supplier like USG, this translates directly into drywall, ceiling, and partition demand across the city's most active construction corridors.</div></div>
+  <div class="insight"><div class="it">New construction share recovery is the key materials demand signal</div><div class="ib">New construction permits climbed to 31.4% of total volume in 2024, up 3.1 pp since 2021. New builds consume 3 to 4 times more raw materials per square foot than renovations. The shift in permit mix is a leading indicator that procurement teams should forecast increased order volume 6 to 9 months forward.</div></div>
+  <div class="insight" style="margin-bottom:1.5rem"><div class="it">Loop and West Loop represent the highest-value emerging demand corridors</div><div class="ib">The Loop posted +31.2% YoY permit growth, the strongest of any high-volume market, driven by commercial high-rise restarts. The West Loop followed at +24.3%. Both areas are mixed-use and residential high-rise starts with multi-year materials consumption profiles, giving suppliers with early permit visibility a sourcing and logistics planning advantage.</div></div>
+
+  <div class="footer">
+    <span>Sivaram Konasani · Finance and Business Analytics · Indiana University Kelley School of Business</span>
+    <span>Data: City of Chicago Data Portal · Building Permits dataset</span>
+  </div>
+</div>
+<script>
+const yrs=['2019','2020','2021','2022','2023','2024'];
+new Chart(document.getElementById('c1'),{type:'bar',data:{labels:yrs,datasets:[{label:'Permits',data:[38420,29840,33210,36780,36640,41847],backgroundColor:'#003087',borderWidth:0,yAxisID:'y'},{label:'Value',data:[12.4,9.8,11.2,13.1,14.9,18.2],type:'line',borderColor:'#C8102E',backgroundColor:'transparent',borderWidth:2,pointRadius:4,pointBackgroundColor:'#C8102E',yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{font:{size:10}},grid:{display:false}},y:{ticks:{font:{size:10},callback:v=>v.toLocaleString()},grid:{color:'rgba(0,0,0,0.06)'}},y1:{position:'right',ticks:{font:{size:10},callback:v=>'$'+v+'B'},grid:{display:false}}}}});
+new Chart(document.getElementById('c2'),{type:'doughnut',data:{labels:['New construction','Renovation','Wrecking','Other'],datasets:[{data:[31.4,44.2,8.1,16.3],backgroundColor:['#003087','#378ADD','#888780','#C8102E'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.parsed.toFixed(1)+'%'}}}}});
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Residential','Commercial','Industrial','Institutional'],datasets:[{label:'2023',data:[14.2,11.8,6.4,8.1],backgroundColor:'rgba(0,48,135,0.25)',borderWidth:0},{label:'2024',data:[18.4,15.2,7.8,9.3],backgroundColor:'#003087',borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.dataset.label+': +'+c.parsed.y.toFixed(1)+'%'}}},scales:{x:{ticks:{font:{size:10}},grid:{display:false}},y:{ticks:{font:{size:10},callback:v=>'+'+v+'%'},grid:{color:'rgba(0,0,0,0.06)'}}}}});
+new Chart(document.getElementById('c4'),{type:'bar',data:{labels:['Near North Side','Austin','Logan Square','Lincoln Park','Humboldt Park','West Town','Lakeview','Loop','Rogers Park','Albany Park'],datasets:[{label:'Permits',data:[3124,2980,1876,2203,1654,1743,2087,2841,1432,1321],backgroundColor:'#003087',borderWidth:0,yAxisID:'y'},{label:'YoY %',data:[18.7,4.2,3.2,9.4,6.1,7.8,11.2,31.2,6.8,5.4],type:'line',borderColor:'#C8102E',backgroundColor:'transparent',borderWidth:2,pointRadius:4,pointBackgroundColor:'#C8102E',yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{font:{size:10}},grid:{display:false}},y:{ticks:{font:{size:10}},grid:{display:false}},y1:{display:false,position:'right',min:0,max:45}}}});
+</script>
+</body>
+</html>
